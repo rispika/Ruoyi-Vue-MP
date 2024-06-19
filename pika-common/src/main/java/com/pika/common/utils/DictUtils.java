@@ -2,6 +2,8 @@ package com.pika.common.utils;
 
 import java.util.Collection;
 import java.util.List;
+
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.pika.common.constant.CacheConstants;
 import com.pika.common.core.domain.entity.SysDictData;
@@ -20,9 +22,11 @@ public class DictUtils
      */
     public static final String SEPARATOR = ",";
 
+
+
     /**
      * 设置字典缓存
-     * 
+     *
      * @param key 参数键
      * @param dictDatas 字典数据列表
      */
@@ -33,19 +37,21 @@ public class DictUtils
 
     /**
      * 获取字典缓存
-     * 
+     *
      * @param key 参数键
      * @return dictDatas 字典数据列表
      */
     public static List<SysDictData> getDictCache(String key)
     {
-        JSONArray arrayCache = SpringUtils.getBean(RedisCache.class).getCacheObject(getCacheKey(key));
+        JSONArray arrayCache = JSONArray.parseArray(JSON.toJSONString(SpringUtils.getBean(RedisCache.class).getCacheObject(getCacheKey(key))));
+//        JSONArray arrayCache = SpringUtils.getBean(RedisCache.class).getCacheObject(getCacheKey(key));
         if (StringUtils.isNotNull(arrayCache))
         {
             return arrayCache.toList(SysDictData.class);
         }
         return null;
     }
+
 
     /**
      * 根据字典类型和字典值获取字典标签

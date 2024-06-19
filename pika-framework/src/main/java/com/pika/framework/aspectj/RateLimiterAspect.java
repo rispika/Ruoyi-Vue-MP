@@ -24,8 +24,8 @@ import com.pika.common.utils.ip.IpUtils;
  *
  * @author ruoyi
  */
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class RateLimiterAspect
 {
     private static final Logger log = LoggerFactory.getLogger(RateLimiterAspect.class);
@@ -34,19 +34,19 @@ public class RateLimiterAspect
 
     private RedisScript<Long> limitScript;
 
-    @Autowired
+//    @Autowired
     public void setRedisTemplate1(RedisTemplate<Object, Object> redisTemplate)
     {
         this.redisTemplate = redisTemplate;
     }
 
-    @Autowired
+//    @Autowired
     public void setLimitScript(RedisScript<Long> limitScript)
     {
         this.limitScript = limitScript;
     }
 
-    @Before("@annotation(rateLimiter)")
+//    @Before("@annotation(rateLimiter)")
     public void doBefore(JoinPoint point, RateLimiter rateLimiter) throws Throwable
     {
         int time = rateLimiter.time();
