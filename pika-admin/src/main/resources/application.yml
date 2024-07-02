@@ -1,7 +1,7 @@
 # 项目相关配置
 ruoyi:
   # 名称
-  name: RuoYi
+  name: Pika
   # 版本
   version: 3.8.7
   # 版权年份
@@ -100,7 +100,7 @@ mybatis-plus:
   # Mapper.xml 文件位置 Maven 多模块项目的扫描路径需以 classpath*: 开头
   mapper-locations: classpath*:mapper/**/*Mapper.xml
   #  #MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名 实体扫描，多个package用逗号或者分号分隔
-  type-aliases-package: com.ruoyi.**.domain
+  type-aliases-package: com.pika.**.domain
   #  config-location: classpath:mybatis/mybatis-config.xml
   #  #通过父类（或实现接口）的方式来限定扫描实体
   #  typeAliasesSuperType: com.vanhr.user.dao.entity.baseEntity
