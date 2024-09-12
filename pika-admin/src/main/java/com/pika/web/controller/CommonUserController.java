@@ -8,7 +8,6 @@ import com.pika.common.core.domain.model.RegisterBody;
 import com.pika.common.utils.StringUtils;
 import com.pika.framework.web.service.SysLoginService;
 import com.pika.framework.web.service.SysRegisterService;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/ip/user")
-public class IPUserController extends BaseController {
+@RequestMapping("/common/user")
+public class CommonUserController extends BaseController {
 
     @Autowired
     private SysLoginService loginService;
