@@ -17,7 +17,11 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         String operator = null;
         try {
-            operator = SecurityUtils.getUsername();
+            try {
+                operator = SecurityUtils.getUsername();
+            } catch (Exception e) {
+                operator = "未登录人员";
+            }
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
