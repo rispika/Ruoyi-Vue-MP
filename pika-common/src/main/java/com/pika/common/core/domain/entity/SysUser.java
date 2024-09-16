@@ -3,6 +3,8 @@ package com.pika.common.core.domain.entity;
 import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.*;
+
+import com.baomidou.mybatisplus.annotation.TableField;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.pika.common.annotation.Excel;
@@ -58,6 +60,10 @@ public class SysUser extends BaseEntity
     /** 帐号状态（0正常 1停用） */
     @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
     private String status;
+    
+    private String accountid;
+
+    private String apikey;
 
     /** 删除标志（0代表存在 2代表删除） */
     private String delFlag;
@@ -75,18 +81,23 @@ public class SysUser extends BaseEntity
         @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
         @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
     })
+    @TableField(exist = false)
     private SysDept dept;
 
     /** 角色对象 */
+    @TableField(exist = false)
     private List<SysRole> roles;
 
     /** 角色组 */
+    @TableField(exist = false)
     private Long[] roleIds;
 
     /** 岗位组 */
+    @TableField(exist = false)
     private Long[] postIds;
 
     /** 角色ID */
+    @TableField(exist = false)
     private Long roleId;
 
     public SysUser()
@@ -94,6 +105,22 @@ public class SysUser extends BaseEntity
 
     }
 
+    public String getAccountid() {
+        return accountid;
+    }
+
+    public void setAccountid(String accountid) {
+        this.accountid = accountid;
+    }
+
+    public String getApikey() {
+        return apikey;
+    }
+
+    public void setApikey(String apikey) {
+        this.apikey = apikey;
+    }
+    
     public SysUser(Long userId)
     {
         this.userId = userId;

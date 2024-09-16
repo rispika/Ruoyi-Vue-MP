@@ -1,6 +1,9 @@
 package com.pika.system.service;
 
 import java.util.List;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.yulichang.base.MPJBaseService;
 import com.pika.common.core.domain.entity.SysUser;
 
 /**
@@ -8,7 +11,7 @@ import com.pika.common.core.domain.entity.SysUser;
  * 
  * @author ruoyi
  */
-public interface ISysUserService
+public interface ISysUserService extends IService<SysUser>
 {
     /**
      * 根据条件分页查询用户列表
