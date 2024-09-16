@@ -125,8 +125,10 @@ mybatis-plus:
     #    defaultEnumTypeHandler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
     # 配置JdbcTypeForNull, oracle数据库必须配置
     jdbc-type-for-null: null
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
-  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    
+    #mybatis-plus配置控制台打印完整带参数SQL语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config: # 全局策略配置
     # 是否控制台 print mybatis-plus 的 LOGO
     banner: true
