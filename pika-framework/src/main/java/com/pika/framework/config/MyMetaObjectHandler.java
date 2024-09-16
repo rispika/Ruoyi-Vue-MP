@@ -25,10 +25,10 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
-//        this.setFieldValByName("createBy", operator, metaObject);
-//        this.setFieldValByName("createTime", new Date(), metaObject);
-//        this.setFieldValByName("updateBy", operator, metaObject);
-//        this.setFieldValByName("updateTime", new Date(), metaObject);
+        this.setFieldValByName("createBy", operator, metaObject);
+        this.setFieldValByName("createTime", new Date(), metaObject);
+        this.setFieldValByName("updateBy", operator, metaObject);
+        this.setFieldValByName("updateTime", new Date(), metaObject);
     }
 
     @Override
