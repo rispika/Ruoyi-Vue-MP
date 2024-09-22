@@ -1,4 +1,4 @@
-package com.pika.web.controller;
+package com.pika.web.controller.common;
 
 import com.pika.common.constant.Constants;
 import com.pika.common.core.controller.BaseController;
