@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.constraints.*;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.pika.common.annotation.Excel;
@@ -24,6 +25,7 @@ public class SysUser extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 用户ID */
+    @TableId
     @Excel(name = "用户序号", cellType = ColumnType.NUMERIC, prompt = "用户编号")
     private Long userId;
 
@@ -55,15 +57,13 @@ public class SysUser extends BaseEntity
     private String avatar;
 
     /** 密码 */
+    @TableField(value = "`password`")
     private String password;
 
     /** 帐号状态（0正常 1停用） */
     @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
+    @TableField(value = "`status`")
     private String status;
-    
-    private String accountid;
-
-    private String apikey;
 
     /** 删除标志（0代表存在 2代表删除） */
     private String delFlag;
@@ -103,22 +103,6 @@ public class SysUser extends BaseEntity
     public SysUser()
     {
 
-    }
-
-    public String getAccountid() {
-        return accountid;
-    }
-
-    public void setAccountid(String accountid) {
-        this.accountid = accountid;
-    }
-
-    public String getApikey() {
-        return apikey;
-    }
-
-    public void setApikey(String apikey) {
-        this.apikey = apikey;
     }
     
     public SysUser(Long userId)
